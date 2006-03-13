@@ -127,11 +127,15 @@ sub get_asn_info {
     for my $asn_info (@origin_as) {
         my @fields  = split /\|/, $asn_info;
         my @network = split '/', $fields[1];
-        
-        # we don't expect multiple asns but the spec says they may occur, so
-        # just use the first
-        (my $asn = $fields[0]) =~ /(d+)/; 
-        
+
+        # if multiple ASNs announce the same, block they are given space
+        # seperated in the first field, we just use the first
+        if ($fields[0] =~ /(\d+) \d+/) {
+            $fields[0] = $1;
+        }
+
+        my $asn = $fields[0];
+                 
         $data_for_asn{$asn} = [ @fields ];
         
         if ($network[1] > $smallest_netmask) {
