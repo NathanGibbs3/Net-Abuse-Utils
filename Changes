@@ -1,0 +1,20 @@
+Revision history for Perl extension Net::Abuse::Utils.
+
+0.04
+	- Added public is_ip function to check that a string looks like an IP
+	- Added tests using Test::Pod::Coverage and Test::Pod (if installed)
+	- Prefix private functions with _ for Test::Pod::Coverage
+	- Require Perl 5.6.1 rather then 5.8.7
+
+0.03  Sun Mar  5 05:46:31 2006
+	- 0.02 was uploaded with a broken test
+
+0.02  Sun Mar  5 05:35:12 2006
+	- Fixed a bug where AS Description would only return data
+	  for ASs assigned by ARIN.
+	- In get_ipwi_contacts check that whoisip_query returns a
+	  hash ref rather then just checking that it isn't an array ref.
+	- a few minor formatting cleanups
+
+0.01  Sat Mar  4 00:46:40 2006
+	- Initial Release

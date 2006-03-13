@@ -1,0 +1,10 @@
+Changes
+examples/ip-info.pl
+lib/Net/Abuse/Utils.pm
+Makefile.PL
+MANIFEST
+META.yml			Module meta-data (added by MakeMaker)
+README
+t/Net-Abuse-Utils.t
+t/pod-coverage.t
+t/pod.t
