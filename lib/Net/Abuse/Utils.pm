@@ -20,7 +20,7 @@ our %EXPORT_TAGS = ( 'all' => [ qw(
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 $VERSION = eval $VERSION;
 
 sub _reverse_ip {
@@ -233,7 +233,7 @@ Net::Abuse::Utils - Routines useful for processing network abuse
 
 =head1 VERSION
 
-This documentation refers to Net::Abuse::Utils version 0.04.
+This documentation refers to Net::Abuse::Utils version 0.05.
 
 
 =head1 SYNOPSIS
