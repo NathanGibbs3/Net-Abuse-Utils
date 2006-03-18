@@ -149,8 +149,14 @@ sub get_asn_info {
 
 sub get_as_description {
     my $asn = shift;
+    my @ASdata;
     
-    my @ASdata = split('\|', _return_rr("AS${asn}.asn.cymru.com", 'TXT'));
+    if (my $data = _return_rr("AS${asn}.asn.cymru.com", 'TXT')) {
+        @ASdata = split('\|', $data);
+    } 
+    else {
+        return;
+    }
     
     # for arin we get HANDLE - AS Org
     if ($ASdata[2] eq ' arin ') {

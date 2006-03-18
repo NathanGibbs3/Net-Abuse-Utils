@@ -3,6 +3,8 @@ Revision history for Perl extension Net::Abuse::Utils.
 0.05
 	- Fixed a bug in looking up ASN when the same block is announced by
 	  multiple ASNs.
+	- Fixed a bug where looking up AS Org for ASN not in Cymru database would
+	  generate warnings rather then just return undef
 
 0.04  Fri Mar 10 2006
 	- Added public is_ip function to check that a string looks like an IP
