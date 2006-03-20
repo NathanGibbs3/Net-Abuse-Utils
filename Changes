@@ -1,6 +1,6 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
-0.05
+0.05  Sun Mar 19 2006
 	- Update Makefile.PL to specify Perl 5.6.1, missed this last rev
 	- Fixed a bug in looking up ASN when the same block is announced by
 	  multiple ASNs.
