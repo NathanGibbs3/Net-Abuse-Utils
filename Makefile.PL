@@ -12,6 +12,7 @@ WriteMakefile(
 							Net::Whois::IP => 0,
  							Email::Address => 0,
 						 },
+    NO_META           => 1,
     ($] >= 5.005 ?
       	(ABSTRACT_FROM  => 'lib/Net/Abuse/Utils.pm',
        	 AUTHOR         => 'Michael Greb <mikegrb@cpan.org>')
