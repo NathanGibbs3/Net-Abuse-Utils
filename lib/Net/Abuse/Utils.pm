@@ -158,6 +158,11 @@ sub get_as_description {
         return;
     }
 
+    # for arin we get HANDLE - AS Org
+    if ($ASdata[2] eq ' arin ') {
+        return _strip_whitespace (( split (/ - /, $ASdata[4], 2) )[1]);
+    }
+
     return _strip_whitespace $ASdata[4];
 }
 
