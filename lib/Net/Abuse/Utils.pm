@@ -15,7 +15,7 @@ our @ISA = qw(Exporter);
 our %EXPORT_TAGS = ( 'all' => [ qw(
 	get_asn_info get_as_description get_soa_contact get_ipwi_contacts
 	get_rdns get_dnsbl_listing get_ip_country get_asn_country
-	get_abusenet_contact is_ip
+	get_abusenet_contact is_ip get_as_company
 ) ] );
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
@@ -169,6 +169,24 @@ sub get_as_description {
     return;
 }
 
+sub get_as_company {
+    my $asn = shift;
+
+    my $desc = get_as_description($asn);
+    return unless defined($desc);
+
+    # remove leading org id/handle/etc
+    $desc =~ s/^[-A-Z]+ //;
+
+    # remove trailing 'AS'
+    $desc =~ s/AS$//;
+
+    # remove trailing 'Autonomous System'
+    $desc =~ s/Autonomous System$//i;
+
+    return $desc;
+}
+
 sub get_soa_contact {
     my $ip = shift;
 
@@ -271,6 +289,11 @@ for the network announcing C<IP>.
 
 Returns the AS description for C<ASN>. 
 
+=item get_as_company ( ASN )
+
+Similiar to C<get_as_description> but attempts to clean it up some before
+returning it.
+
 =item get_soa_contact( IP )
 
 Returns the SOA contact email address for the reverse DNS /24
@@ -352,7 +375,7 @@ this module's distribution.
 
 =head1 LICENCE AND COPYRIGHT
 
-Copyright (c)  2006 Michael Greb (mgreb@linode.com). All rights reserved.
+Copyright (c) 2006-2008 Michael Greb (mgreb@linode.com). All rights reserved.
 
 This module is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself. See L<perlartistic>.

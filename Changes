@@ -1,6 +1,11 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
-0.06
+0.06  Fri May 30 2008
+	- Added get_as_company which functions similiarly to
+	  get_as_description but attempts to clean up the string found before
+	  returning it
+	- Update AS description for 21844 in t/Net-Abuse-Utils.t
+	- Remove relays.ordb.org from the DNSBL list in examples/ip-info.pl
 
 0.05  Sun Mar 19 2006
 	- Update Makefile.PL to specify Perl 5.6.1, missed this last rev

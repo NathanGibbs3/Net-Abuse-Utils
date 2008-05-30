@@ -8,7 +8,7 @@ use Net::Abuse::Utils qw( :all );
 my %dnsbl = (
 		'Spamhaus'      => 'sbl-xbl.spamhause.org',
 		'SpamCop'       => 'bl.spamcop.net',
-		'Relays ORDB'   => 'relays.ordb.org',
+#		'Relays ORDB'   => 'relays.ordb.org',
 		'Relays VISI'   => 'relays.vsi.com',
 		'Composite BL'  => 'cbl.abuseat.org',
 		'Dynablock BL'  => 'dnsbl.njabl.org',
@@ -37,8 +37,10 @@ print "\tIP Country: ", get_ip_country($ip), "\n";
 print "\nAS Info:\n";
 if (my @asn = get_asn_info($ip) ) {
     my $asn_org = get_as_description($asn[0]) || '';
+    my $asn_co  = get_as_company($asn[0]) || '';
     print "\tASN:        $asn[0] - $asn[1]\n";
     print "\tAS  Org:    $asn_org\n";
+    print "\tClean Org:  $asn_co\n";
     print "\tAS Country: ", get_asn_country($asn[0]), "\n";
 }
 else {
