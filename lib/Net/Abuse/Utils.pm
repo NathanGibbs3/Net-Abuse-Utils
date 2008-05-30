@@ -150,23 +150,15 @@ sub get_asn_info {
 sub get_as_description {
     my $asn = shift;
     my @ASdata;
-    
+
     if (my $data = _return_rr("AS${asn}.asn.cymru.com", 'TXT')) {
         @ASdata = split('\|', $data);
     } 
     else {
         return;
     }
-    
-    # for arin we get HANDLE - AS Org
-    if ($ASdata[2] eq ' arin ') {
-        return _strip_whitespace (( split (/ - /, $ASdata[4], 2) )[1]);
-    }
-    else {
-        return _strip_whitespace $ASdata[4];
-    }
-    
-    return;
+
+    return _strip_whitespace $ASdata[4];
 }
 
 sub get_as_company {
@@ -176,13 +168,13 @@ sub get_as_company {
     return unless defined($desc);
 
     # remove leading org id/handle/etc
-    $desc =~ s/^[-A-Z]+ //;
+    $desc =~ s/^[-_A-Z]+ //;
 
     # remove trailing 'AS'
-    $desc =~ s/AS$//;
+    $desc =~ s/AS(:? Number)?$//;
 
     # remove trailing 'Autonomous System'
-    $desc =~ s/Autonomous System$//i;
+    $desc =~ s/Autonomous System(:? Number)?$//i;
 
     return $desc;
 }

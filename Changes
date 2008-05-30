@@ -1,6 +1,13 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
-0.07
+0.07  Fri Mar 30 2008
+	- update regexs used by get_as_company to remove trailing 'AS Number'
+	  as well as 'AS'
+	- remove stripping of AS Handle from ARIN AS Desc now that we have
+	  get_as_company
+	- Module::Signature module signing stuff
+	- Add license to Makefile.PL
+	- Use newer ExtUtils::MakeMaker to generate the new META.yml format
 
 0.06  Fri May 30 2008
 	- Added get_as_company which functions similiarly to
