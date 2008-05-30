@@ -1,5 +1,7 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
+0.07
+
 0.06  Fri May 30 2008
 	- Added get_as_company which functions similiarly to
 	  get_as_description but attempts to clean up the string found before
