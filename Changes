@@ -1,5 +1,10 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
+0.08  Fri Jun 13 2008
+	- update output of get_as_description to make ARIN IPs match other
+	  RIRs, HANDLE AS Org 
+	  eg: THEPLANET-AS ThePlanet.com Internet Services, Inc.
+
 0.07  Fri Mar 30 2008
 	- update regexs used by get_as_company to remove trailing 'AS Number'
 	  as well as 'AS'

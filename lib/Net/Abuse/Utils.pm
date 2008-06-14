@@ -20,7 +20,19 @@ our %EXPORT_TAGS = ( 'all' => [ qw(
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-our $VERSION = '0.07';
+
+=head1 NAME
+
+Net::Abuse::Utils - Routines useful for processing network abuse
+
+
+=head1 VERSION
+
+This documentation refers to Net::Abuse::Utils version 0.08.
+
+=cut
+
+our $VERSION = '0.08';
 $VERSION = eval $VERSION;
 
 sub _reverse_ip {
@@ -158,9 +170,12 @@ sub get_as_description {
         return;
     }
 
-    # for arin we get HANDLE - AS Org
+    # for arin we get "HANDLE - AS Org"
+    # we want to make it "HANDLE AS Org" to match other RIRs
     if ($ASdata[2] eq ' arin ') {
-        return _strip_whitespace (( split (/ - /, $ASdata[4], 2) )[1]);
+        my $org = _strip_whitespace($ASdata[4]);
+        $org =~ s/^(\S+) - (.*)$/$1 $2/;
+        return $org;
     }
 
     return _strip_whitespace $ASdata[4];
@@ -246,16 +261,6 @@ sub is_ip {
 
 1;
 __END__
-
-=head1 NAME
-
-Net::Abuse::Utils - Routines useful for processing network abuse
-
-
-=head1 VERSION
-
-This documentation refers to Net::Abuse::Utils version 0.07.
-
 
 =head1 SYNOPSIS
 

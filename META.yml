@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                Net-Abuse-Utils
-version:             0.07
+version:             0.08
 abstract:            Routines useful for processing network abuse
 license:             perl
 author:              

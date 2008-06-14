@@ -1,6 +1,7 @@
 Changes
 examples/ip-info.pl
 lib/Net/Abuse/Utils.pm
+LICENSE
 Makefile.PL
 MANIFEST
 README
