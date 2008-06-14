@@ -1,5 +1,8 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
+0.09  
+	- Fix META.yml issues that were missed in 0.08
+
 0.08  Fri Jun 13 2008
 	- update output of get_as_description to make ARIN IPs match other
 	  RIRs, HANDLE AS Org 

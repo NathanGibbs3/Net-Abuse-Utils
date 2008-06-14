@@ -5,7 +5,7 @@ abstract:            Routines useful for processing network abuse
 license:             perl
 author:              
     - Michael Greb <mikegrb@cpan.org>
-generated_by:        ExtUtils::MakeMaker version 6.44
+generated_by:        hand
 distribution_type:   module
 requires:     
     Email::Address:                0
@@ -13,10 +13,11 @@ requires:
     Net::Whois::IP:                0
     perl:                          5.006_001
 build_requires:
-    Test::More                     0
+    Test::More:                    0
 provides:
-    Net::Abuse::Utils
-    file: lib/Net/Abuse/Utils.pm
+    Net::Abuse::Utils:
+        file: lib/Net/Abuse/Utils.pm
+        version: 0.08
 meta-spec:
     url:     http://module-build.sourceforge.net/META-spec-v1.3.html
     version: 1.3
