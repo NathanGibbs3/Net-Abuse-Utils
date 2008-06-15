@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                Net-Abuse-Utils
-version:             0.08
+version:             0.09
 abstract:            Routines useful for processing network abuse
 license:             perl
 author:              
@@ -17,7 +17,7 @@ build_requires:
 provides:
     Net::Abuse::Utils:
         file: lib/Net/Abuse/Utils.pm
-        version: 0.08
+        version: 0.09
 meta-spec:
     url:     http://module-build.sourceforge.net/META-spec-v1.3.html
     version: 1.3
