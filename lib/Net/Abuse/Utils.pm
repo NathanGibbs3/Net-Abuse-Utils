@@ -190,7 +190,7 @@ sub get_as_company {
     return unless defined($desc);
 
     # remove leading org id/handle/etc
-    $desc =~ s/^[-_A-Z]+ //;
+    $desc =~ s/^[-_A-Z0-9]+ //;
 
     # remove trailing 'AS'
     $desc =~ s/AS(:? Number)?$//;
