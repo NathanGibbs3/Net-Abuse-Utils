@@ -271,7 +271,7 @@ sub get_domain {
         # just two parts, lets return it
         return join '.', @parts[1, 0];
     }
-    if (grep /\Q$parts[0].$parts[1]\E/, @tlds) {
+    if (grep /^\Q$parts[1].$parts[0]\E$/, @tlds) {
         #  last two parts found in tlds
         return join '.', @parts[2, 1, 0];
     } else {
