@@ -3,7 +3,7 @@ Revision history for Perl extension Net::Abuse::Utils.
 0.10
 	- New get_domain function that converts host name to domain name
 
-0.09  
+0.09  Sun Jun 15 2008
 	- Fix META.yml issues that were missed in 0.08
 
 0.08  Fri Jun 13 2008
