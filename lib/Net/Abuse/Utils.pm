@@ -36,7 +36,7 @@ This documentation refers to Net::Abuse::Utils version 0.09.
 our $VERSION = '0.09';
 $VERSION = eval $VERSION;
 
-memoize(_return_rr);
+memoize('_return_rr');
 my @tlds;
 
 sub _reverse_ip {
