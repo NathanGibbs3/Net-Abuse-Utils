@@ -7,6 +7,7 @@ use warnings;
 use Net::DNS;
 use Net::Whois::IP qw(whoisip_query);
 use Email::Address;
+use Memoize;
 
 require Exporter;
 
@@ -35,6 +36,7 @@ This documentation refers to Net::Abuse::Utils version 0.09.
 our $VERSION = '0.09';
 $VERSION = eval $VERSION;
 
+memoize(_return_rr);
 my @tlds;
 
 sub _reverse_ip {
