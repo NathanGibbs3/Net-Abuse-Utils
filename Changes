@@ -1,7 +1,12 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
-0.10
+0.10  Sun Dec 28 2008
 	- New get_domain function that converts host name to domain name
+	- Memoize support though commented out by default, enable by 
+	  uncommenting the following two lines in lib/Net/Abuse/Utils.pm:
+		# use Memoize;
+		# memoize('_return_rr');
+	  A future version will likely allow Memoization via an export tag.
 
 0.09  Sun Jun 15 2008
 	- Fix META.yml issues that were missed in 0.08

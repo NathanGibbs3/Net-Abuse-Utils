@@ -5,7 +5,10 @@
 use strict;
 use Test::More;
 
-if (!$ENV{TEST_SIGNATURE}) {
+if ($ENV{AUTOMATED_TESTING}) {
+	plan skip_all => 'skipped due to automated testing';
+}
+elsif (!$ENV{TEST_SIGNATURE}) {
     plan skip_all => 
       "Set the environment variable TEST_SIGNATURE to enable this test.";
 }

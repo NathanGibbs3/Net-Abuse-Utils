@@ -1,13 +1,13 @@
 package Net::Abuse::Utils;
 
-use 5.006_001;
+use 5.006;
 use strict;
 use warnings;
 
 use Net::DNS;
 use Net::Whois::IP qw(whoisip_query);
 use Email::Address;
-use Memoize;
+# use Memoize;
 
 require Exporter;
 
@@ -29,14 +29,14 @@ Net::Abuse::Utils - Routines useful for processing network abuse
 
 =head1 VERSION
 
-This documentation refers to Net::Abuse::Utils version 0.09.
+This documentation refers to Net::Abuse::Utils version 0.10.
 
 =cut
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 $VERSION = eval $VERSION;
 
-memoize('_return_rr');
+# memoize('_return_rr');
 my @tlds;
 
 sub _reverse_ip {
@@ -365,7 +365,9 @@ debugging output will be available.
 
 =head1 CONFIGURATION AND ENVIRONMENT
 
-No configuration mechanism is currently implemented.
+There are two commented out lines that can be uncommented to enable Memoize
+support.  I haven't yet decided whether to include this option by default.  It
+may be made available in the future via an import flag to use.
 
 =head1 DEPENDENCIES
 

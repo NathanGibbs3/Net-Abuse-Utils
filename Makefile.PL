@@ -5,18 +5,14 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     (MM->can('signature_target') ? (SIGN => 1) : ()),
     NAME              => 'Net::Abuse::Utils',
+    AUTHOR            => 'Michael Greb <mgreb@linode.com>',
     VERSION_FROM      => 'lib/Net/Abuse/Utils.pm',
+    ABSTRACT_FROM     => 'lib/Net/Abuse/Utils.pm',
     LICENSE           => 'perl',
     PREREQ_PM         => {
 							Net::DNS => 0,
 							Net::Whois::IP => 0,
- 							Email::Address => 0,
-						 },
-    NO_META           => 1,
-    ($] >= 5.005 ?
-      	(ABSTRACT_FROM  => 'lib/Net/Abuse/Utils.pm',
-       	 AUTHOR         => 'Michael Greb <mikegrb@cpan.org>')
-	:
-		()
-	),
+							Email::Address => 0,
+							perl => 5.006,
+    },
 );
