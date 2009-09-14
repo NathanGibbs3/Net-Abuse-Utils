@@ -240,6 +240,8 @@ sub get_ip_country {
 
 sub get_asn_country {
     my $asn   = shift;
+    return unless $asn =~ /^\d+$/;
+
     my $as_cc = (split (/\|/,_return_rr("AS${asn}.asn.cymru.com", 'TXT')))[1];
     if ($as_cc) {
         return _strip_whitespace ($as_cc);
