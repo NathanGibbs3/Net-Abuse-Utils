@@ -1,5 +1,9 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
+0.11  Sun Sep 14 2009
+	- Moar Tests
+	- Check asn is a number in get_asn_country
+
 0.10  Sun Dec 28 2008
 	- New get_domain function that converts host name to domain name
 	- Memoize support though commented out by default, enable by 
