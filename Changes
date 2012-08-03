@@ -2,6 +2,7 @@ Revision history for Perl extension Net::Abuse::Utils.
 
 0.11_01 2012-07-30
     - [wesyoung.me] added get_peer_info function
+    - Use /usr/bin/env perl for example script shebangs
 
 0.11  Sun Sep 14 2009
 	- Moar Tests
