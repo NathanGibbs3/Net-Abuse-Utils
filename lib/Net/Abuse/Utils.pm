@@ -29,7 +29,7 @@ Net::Abuse::Utils - Routines useful for processing network abuse
 
 =head1 VERSION
 
-This documentation refers to Net::Abuse::Utils version 0.11.
+This documentation refers to Net::Abuse::Utils version 0.11_01.
 
 =cut
 
