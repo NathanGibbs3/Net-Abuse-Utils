@@ -112,6 +112,11 @@ sub get_ipwi_contacts {
     my @addresses;
     my %unique_addresses;
 
+    # work-around for the new way arin works
+    # it doesn't like networks very well.
+    my @bits = split(/\//,$ip);
+    $ip = $bits[0] if($#bits > 0);
+    
     my $response = whoisip_query($ip);
 
     # whoisip_query returns array ref if not found
