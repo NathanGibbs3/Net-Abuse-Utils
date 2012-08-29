@@ -132,11 +132,14 @@ sub get_asn_info {
     my $lookup    = _reverse_ip($ip) . '.origin.asn.cymru.com';
     my @origin_as = _return_rr($lookup, 'TXT', 2) or return;
     
+    # un-comment for testing
+    #push(@origin_as,'20738 | 212.67.192.0/24 | GB | ripencc | 1999-05-12');
+
     # 23028 | 216.90.108.0/24 | US | arin | 1998-09-25
     # 701 1239 3549 3561 7132 | 216.90.108.0/24 | US | arin | 1998-09-25
  
     my $smallest_netmask = 0;
-    my ($smallest_asn, %data_for_asn);
+    my ($smallest_prefix, %data_for_asn);
 
     # surely there is a better way to do this, at least the split
     # fields are stored so they don't have to be split again ;)
@@ -152,15 +155,15 @@ sub get_asn_info {
 
         my $asn = $fields[0];
                  
-        $data_for_asn{$asn} = [ @fields ];
+        $data_for_asn{$fields[1]} = [@fields];
         
         if ($network[1] > $smallest_netmask) {
             $smallest_netmask = $network[1];
-            $smallest_asn     = $asn;
+            $smallest_prefix  = $fields[1];
         }
     }
 
-    return map { _strip_whitespace($_) } @{ $data_for_asn{$smallest_asn} };
+    return map { _strip_whitespace($_) } @{ $data_for_asn{$smallest_prefix} };
 }
 
 sub get_peer_info {
