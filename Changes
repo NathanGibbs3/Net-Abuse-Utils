@@ -1,5 +1,12 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
+0.12 2012-08-29
+    - [wesyoung.me] test false failure bugfix
+    - [wesyoung.me] get_asn_info and get_ipwi_contacts bug fixes
+      closes RT #73203 and RT #70209
+    - comment out some old DNSBLs and reorder output in ip-info.pl
+    - add Wes Young to authors
+
 0.11_01 2012-07-30
     - [wesyoung.me] added get_peer_info function
     - Use /usr/bin/env perl for example script shebangs

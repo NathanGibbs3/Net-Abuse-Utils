@@ -29,11 +29,11 @@ Net::Abuse::Utils - Routines useful for processing network abuse
 
 =head1 VERSION
 
-This documentation refers to Net::Abuse::Utils version 0.11_01.
+This documentation refers to Net::Abuse::Utils version 0.12.
 
 =cut
 
-our $VERSION = '0.11_01';
+our $VERSION = '0.12';
 $VERSION = eval $VERSION;
 
 # memoize('_return_rr');
@@ -440,9 +440,10 @@ Rik Rose, Jon Honeycutt, Brandon Hale, TJ Fontaine, A. Pagaltzis, and
 Heidi Greb all provided invaluable input during the development of this
 module.
 
-=head1 AUTHOR
+=head1 AUTHORS
 
-Michael Greb (mgreb@linode.com)
+Michael Greb, <mgreb@linode.com>
+Wes Young, <wes@barely3am.com>
 
 =head1 SEE ALSO
 
