@@ -11,14 +11,14 @@ my %dnsbl = (
 		'SpamCop'       => 'bl.spamcop.net',
 #		'Relays ORDB'   => 'relays.ordb.org',
 		'Relays VISI'   => 'relays.vsi.com',
-		'Composite BL'  => 'cbl.abuseat.org',
+#		'Composite BL'  => 'cbl.abuseat.org',
 		'Dynablock BL'  => 'dnsbl.njabl.org',
-		'DSBL Proxy'    => 'list.dsbl.org',
-		'DSBL Multihop' => 'multihop.dsbl.org',
-		'SORBS OR'      => 'dnsbl.sorbs.net',
+#		'DSBL Proxy'    => 'list.dsbl.org',
+#		'DSBL Multihop' => 'multihop.dsbl.org',
+#		'SORBS OR'      => 'dnsbl.sorbs.net',
 		'SPEWS L1'      => 'l1.spews.dnsbl.sorbs.net',
 		'SPEWS L2'      => 'l2.spews.dnsbl.sorbs.net',
-		'Blitzed OPM'   => 'opm.blitzed.org',
+#		'Blitzed OPM'   => 'opm.blitzed.org',
 		);
 
 my $ip = shift;
@@ -64,11 +64,6 @@ if (my @asn = get_asn_info($ip) ) {
 else {
     print "\tUnknown ASN\n";
 }
-print "\nDNSBL Listings:\n";
-foreach my $bl (keys %dnsbl) {
-    my $txt = get_dnsbl_listing($ip, $dnsbl{$bl}) || 'not listed';
-    print "\t$bl:\t$txt\n";
-}
 
 my $soa_contact = get_soa_contact($ip) || 'not found';
 print "\nContact Addresses:\n";
@@ -77,4 +72,10 @@ print "\tIP Whois Contacts: ", join (' ', get_ipwi_contacts($ip) ), "\n";
 
 if ($soa_contact =~ /\@(\S+)$/) {
     print "\tAbuse.net ($1): ", get_abusenet_contact($1), "\n";
+}
+
+print "\nDNSBL Listings:\n";
+foreach my $bl (keys %dnsbl) {
+    my $txt = get_dnsbl_listing($ip, $dnsbl{$bl}) || 'not listed';
+    print "\t$bl:\t$txt\n";
 }
