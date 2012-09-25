@@ -207,7 +207,7 @@ sub get_peer_info {
 
 sub get_malware {
     my $hash = shift;
-    return unless($hash && lc($hash) =~ /^[a-z-0-9]{32}$/);
+    return unless($hash && lc($hash) =~ /^[a-z0-9]{32}$/);
     
     my $lookup = $hash.'.malware.hash.cymru.com';
 
