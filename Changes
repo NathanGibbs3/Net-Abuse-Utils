@@ -1,4 +1,6 @@
 Revision history for Perl extension Net::Abuse::Utils.
+0.13 2012-12-06
+    - account for Net::DNS >= 0.69 converting SOA email record to address
 
 0.12_01 2012-09-24
     - [wesyoung.me] added get_malware function based on: http://www.team-cymru.org/Services/MHR

@@ -29,11 +29,11 @@ Net::Abuse::Utils - Routines useful for processing network abuse
 
 =head1 VERSION
 
-This documentation refers to Net::Abuse::Utils version 0.12.
+This documentation refers to Net::Abuse::Utils version 0.13.
 
 =cut
 
-our $VERSION = '0.12_01';
+our $VERSION = '0.13';
 $VERSION = eval $VERSION;
 
 # memoize('_return_rr');
@@ -266,7 +266,7 @@ sub get_soa_contact {
     $lookup =~ s/^\d+\.//;
 
     if ( my $soa_contact = _return_rr($lookup, 'SOA') ) {
-        $soa_contact =~ s/\./@/;
+        $soa_contact =~ s/\./@/ unless $soa_contact =~ m/@/;
         return $soa_contact;
     }
     

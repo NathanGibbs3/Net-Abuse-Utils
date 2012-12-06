@@ -1,4 +1,4 @@
-Net-Abuse-Utils version 0.11
+Net-Abuse-Utils version 0.13
 ==============================
 
 This module provides functions to lookup information about an IP or
@@ -29,7 +29,7 @@ This module requires these other modules:
 
 COPYRIGHT AND LICENCE
 
-Copyright (C) 2006-2008 by Michael Greb
+Copyright (C) 2006-2012 by Michael Greb and Wes Young
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.8.7 or,
