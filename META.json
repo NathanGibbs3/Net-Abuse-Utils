@@ -1,0 +1,69 @@
+{
+   "abstract" : "Routines useful for processing network abuse",
+   "author" : [
+      "Michael Greb, <mgreb@linode.com>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Milla version v1.0.3, Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.131560",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Net-Abuse-Utils",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "xt",
+         "inc",
+         "share",
+         "eg",
+         "examples"
+      ]
+   },
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "Module::Build::Tiny" : "0.025"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "Test::Pod" : "1.41"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Email::Address" : "0",
+            "Net::DNS" : "0",
+            "Net::Whois::IP" : "0"
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/mikegrb/Net-Abuse-Utils/issues"
+      },
+      "homepage" : "https://github.com/mikegrb/Net-Abuse-Utils",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/mikegrb/Net-Abuse-Utils.git",
+         "web" : "https://github.com/mikegrb/Net-Abuse-Utils"
+      }
+   },
+   "version" : "0.13",
+   "x_contributors" : [
+      "Michael Greb <mgreb@linode.com>",
+      "Michael Greb <michael@orion.thegrebs.com>",
+      "Michael Greb <michael@soryu.i3>",
+      "Michael Greb <michael@thegrebs.com>",
+      "Rev Michael Greb <michael@thegrebs.com>",
+      "Wes <github@barely3am.com>",
+      "Wes Young <github@barely3am.com>",
+      "mikegrb <mgreb@linode.com>"
+   ]
+}
+
