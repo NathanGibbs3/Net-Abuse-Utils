@@ -1,4 +1,3 @@
-Makefile
-Net-Abuse-Utils*.tar.gz
-blib
-pm_to_blib
+/Net-Abuse-Utils-*
+/.build
+!META.json
