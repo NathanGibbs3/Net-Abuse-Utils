@@ -29,11 +29,11 @@ Net::Abuse::Utils - Routines useful for processing network abuse
 
 =head1 VERSION
 
-This documentation refers to Net::Abuse::Utils version 0.13.
+This documentation refers to Net::Abuse::Utils version 0.14.
 
 =cut
 
-our $VERSION = '0.13';
+our $VERSION = '0.14';
 $VERSION = eval $VERSION;
 
 # memoize('_return_rr');
