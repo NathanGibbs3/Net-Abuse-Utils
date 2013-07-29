@@ -6,7 +6,7 @@ Net::Abuse::Utils - Routines useful for processing network abuse
 
 # VERSION
 
-This documentation refers to Net::Abuse::Utils version 0.13.
+This documentation refers to Net::Abuse::Utils version 0.14.
 
 # DESCRIPTION
 

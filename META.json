@@ -26,7 +26,7 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "Module::Build::Tiny" : "0.025"
+            "ExtUtils::MakeMaker" : "6.30"
          }
       },
       "develop" : {
@@ -54,7 +54,7 @@
          "web" : "https://github.com/mikegrb/Net-Abuse-Utils"
       }
    },
-   "version" : "0.13",
+   "version" : "0.14",
    "x_contributors" : [
       "Michael Greb <mgreb@linode.com>",
       "Michael Greb <michael@orion.thegrebs.com>",
