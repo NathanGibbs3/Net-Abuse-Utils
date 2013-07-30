@@ -54,7 +54,7 @@
          "web" : "https://github.com/mikegrb/Net-Abuse-Utils"
       }
    },
-   "version" : "0.14",
+   "version" : "0.15",
    "x_contributors" : [
       "Michael Greb <mgreb@linode.com>",
       "Michael Greb <michael@orion.thegrebs.com>",
