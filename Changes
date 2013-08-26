@@ -1,6 +1,8 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
 {{$NEXT}}
+
+0.16  2013-08-25 23:15:13 EDT
     - Require ONLINE_TESTS ENV variable be set for online tests.
 
 0.15  2013-07-30 06:16:32 EDT
