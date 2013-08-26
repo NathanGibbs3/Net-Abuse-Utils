@@ -1,9 +1,9 @@
-# Before `make install' is performed this script should be runnable with
-# `make test'. After `make install' it should work as `perl Net-Abuse-Util.t'
-
-#########################
-
-# change 'tests => 1' to 'tests => last_test_to_print';
+BEGIN {
+    unless ($ENV{RELEASE_TESTING} || $ENV{ONLINE_TESTS}) {
+        require Test::More;
+        Test::More::plan(skip_all=>'these online tests require env variable ONLINE_TESTS be set to run');
+    }
+}
 
 use Test::More tests => 20;
 BEGIN { use_ok('Net::Abuse::Utils') };
