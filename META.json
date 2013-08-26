@@ -56,14 +56,8 @@
    },
    "version" : "0.15",
    "x_contributors" : [
-      "Michael Greb <mgreb@linode.com>",
-      "Michael Greb <michael@orion.thegrebs.com>",
-      "Michael Greb <michael@soryu.i3>",
-      "Michael Greb <michael@thegrebs.com>",
-      "Rev Michael Greb <michael@thegrebs.com>",
-      "Wes <github@barely3am.com>",
       "Wes Young <github@barely3am.com>",
-      "mikegrb <mgreb@linode.com>"
+      "mikegrb <michael@thegrebs.com>"
    ]
 }
 
