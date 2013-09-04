@@ -1,6 +1,7 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
 {{$NEXT}}
+    - [Andrew Hoying] IPv6 Support thanks to Andrew Hoying
 
 0.17  2013-08-27 16:59:21 EDT
     - Offline tests

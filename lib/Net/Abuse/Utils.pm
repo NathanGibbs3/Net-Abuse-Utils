@@ -5,8 +5,9 @@ use strict;
 use warnings;
 
 use Net::DNS;
-use Net::Whois::IP qw(whoisip_query);
+use Net::Whois::IP 1.11 'whoisip_query';
 use Email::Address;
+use Net::IP;
 # use Memoize;
 
 require Exporter;
@@ -41,9 +42,10 @@ my @tlds;
 
 sub _reverse_ip {
     my $ip = shift;
-    my @quads = split ('\.', $ip);
-    return join('.', reverse(@quads));
-} 
+    my @parts = split( /\./, Net::IP::ip_reverse($ip) );
+    # strip in-addr.arp or ip6.arpa from results
+    return join('.', @parts[0 .. $#parts-2]);
+}
 
 sub _return_rr {
     my $lookup  = shift;
@@ -108,6 +110,8 @@ sub _strip_whitespace {
 
 sub get_ipwi_contacts {
     my $ip = shift;
+    my $ver = Net::IP::ip_get_version($ip);
+    return unless $ver;
 
     my @addresses;
     my %unique_addresses;
@@ -133,8 +137,13 @@ sub get_ipwi_contacts {
 
 sub get_asn_info {
     my $ip = shift;
+    my $ver = Net::IP::ip_get_version($ip);
+    return unless $ver;
 
-    my $lookup    = _reverse_ip($ip) . '.origin.asn.cymru.com';
+    my $domain
+        = ( $ver == 4 ) ? '.origin.asn.cymru.com' : '.origin6.asn.cymru.com';
+
+    my $lookup    = _reverse_ip($ip) . $domain;
     my @origin_as = _return_rr($lookup, 'TXT', 2) or return;
     
     # un-comment for testing
@@ -173,6 +182,10 @@ sub get_asn_info {
 
 sub get_peer_info {
     my $ip = shift;
+
+    # IPv4 only until Cymru has an IPv6 peer database
+    my $ver = Net::IP::ip_get_version($ip);
+    return unless $ver && $ver == 4;
 
     my $lookup    = _reverse_ip($ip) . '.peer.asn.cymru.com';
     my @origin_as = _return_rr($lookup, 'TXT', 2) or return;
@@ -275,22 +288,27 @@ sub get_soa_contact {
 
 sub get_rdns {
     my $ip = shift;
+    my $ver = Net::IP::ip_get_version($ip);
+    return unless $ver;
 
-    return _return_rr( _reverse_ip($ip) . '.in-addr.arpa', 'PTR');
+    my $suffix = ($ver == 4) ? '.in-addr.arpa' : '.ip6.arpa';
+    return _return_rr( _reverse_ip($ip) . $suffix, 'PTR');
 }
 
 sub get_dnsbl_listing {
-    my $ip    = shift;
-    my $dnsbl = shift;
+    my ($ip, $dnsbl) = @_;
+
+    # IPv4 Only
+    my $ver = Net::IP::ip_get_version($ip);
+    return unless $ver && $ver == 4;
 
     my $lookup = join '.', _reverse_ip( $ip ), $dnsbl;
-    
+
     return _return_rr($lookup, 'TXT', 1);
 }
 
 sub get_ip_country {
-     my $ip = shift;
-     
+     my $ip = shift;     
      return (get_asn_info($ip))[2];
 }
 
@@ -300,25 +318,19 @@ sub get_asn_country {
 
     my $as_cc = (split (/\|/,_return_rr("AS${asn}.asn.cymru.com", 'TXT')))[1];
     if ($as_cc) {
-        return _strip_whitespace ($as_cc);
+        return _strip_whitespace($as_cc);
     }
     return;
 }
 
 sub get_abusenet_contact {
-    my $domain = shift;
-    
+    my $domain = shift;    
     return _return_rr("$domain.contacts.abuse.net", 'TXT', 1)
 }
 
 sub is_ip {
-    $_ = shift;
-    return m/
-                ^
-                (?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}
-                (?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)
-                $
-           /x;
+    my $ip = shift;
+    return defined Net::IP::ip_get_version($ip);
 }
 
 sub get_domain {
