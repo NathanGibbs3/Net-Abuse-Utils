@@ -34,7 +34,7 @@ This documentation refers to Net::Abuse::Utils version 0.15.
 
 =cut
 
-our $VERSION = '0.17';
+our $VERSION = '0.18';
 $VERSION = eval $VERSION;
 
 # memoize('_return_rr');
