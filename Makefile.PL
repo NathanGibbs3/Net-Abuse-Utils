@@ -22,7 +22,8 @@ my %WriteMakefileArgs = (
   "PREREQ_PM" => {
     "Email::Address" => 0,
     "Net::DNS" => 0,
-    "Net::Whois::IP" => 0
+    "Net::IP" => 0,
+    "Net::Whois::IP" => "1.11"
   },
   "TEST_REQUIRES" => {},
   "VERSION" => "0.17",
