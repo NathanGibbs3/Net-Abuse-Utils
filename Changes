@@ -1,6 +1,7 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
 {{$NEXT}}
+    - Update docs, indicate which functions are IPv4 only
 
 0.18  2013-09-03 21:17:51 EDT
     - [Andrew Hoying] IPv6 Support thanks to Andrew Hoying

@@ -21,19 +21,6 @@ our %EXPORT_TAGS = ( 'all' => [ qw(
 ) ] );
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
-
-=head1 NAME
-
-Net::Abuse::Utils - Routines useful for processing network abuse
-
-
-=head1 VERSION
-
-This documentation refers to Net::Abuse::Utils version 0.15.
-
-=cut
-
 our $VERSION = '0.18';
 $VERSION = eval $VERSION;
 
@@ -353,6 +340,11 @@ sub get_domain {
 }
 
 1;
+
+=head1 NAME
+
+Net::Abuse::Utils - Routines useful for processing network abuse
+
 =head1 SYNOPSIS
 
     use Net::Abuse::Utils qw( :all );
@@ -363,79 +355,78 @@ sub get_domain {
 
 Net::Abuse::Utils provides serveral functions useful for determining
 information about an IP address including contact/reporting addresses,
-ASN/network info, reverse dns, and DNSBL listing status.
-
+ASN/network info, reverse dns, and DNSBL listing status.  Functions which take
+an IP accept either IPv6 or IPv4 IPs unless indicated otherwise.
 
 =head1 FUNCTIONS
 
 The following functions are exportable from this module.  You may import all
 of them into your namespace with the C<:all> tag.
 
-=over 5
-
-=item get_asn_info ( IP )
+=head2 get_asn_info ( IP )
 
 Returns a list containing (ASN, Network/Mask, CC code, RIR, modified date)
 for the network announcing C<IP>.
 
-=item get_peer_info ( IP )
+=head2 get_peer_info ( IP )
 
-Returns an array of hash references containing (ASN, Network/Mask, CC code, RIR, modified date)
-for the peers of the network announcing C<IP>.
+IPv4 Only. Returns an array of hash references containing (ASN, Network/Mask,
+CC code, RIR, modified date) for the peers of the network announcing C<IP>.
 
-=item get_as_description ( ASN )
+=head2 get_as_description ( ASN )
 
 Returns the AS description for C<ASN>. 
 
-=item get_as_company ( ASN )
+=head2 get_as_company ( ASN )
 
 Similiar to C<get_as_description> but attempts to clean it up some before
 returning it.
 
-=item get_soa_contact( IP )
+=head2 get_soa_contact( IP )
 
 Returns the SOA contact email address for the reverse DNS /24
 zone containing C<IP>.
 
-=item get_ipwi_contacts( IP )
+=head2 get_ipwi_contacts( IP )
 
 Returns a list of all email addresses found in whois information
 for C<IP> with duplicates removed.
 
-=item get_rdns( IP )
+=head2 get_rdns( IP )
 
 Returns the reverse PTR for C<IP>.
 
-=item get_dnsbl_listing( IP, DNSBL zone )
+=head2 get_dnsbl_listing( IP, DNSBL zone )
 
-Returns the listing text for C<IP> for the designated DNSBL.  C<DNSBL zone>
-should be the zone used for looking up addresses in the blocking list.
+IPv4 Only. Returns the listing text for C<IP> for the designated DNSBL.
+C<DNSBL zone> should be the zone used for looking up addresses in the
+blocking list.
 
-=item get_ip_country( IP )
+=head2 get_ip_country( IP )
 
 Returns the 2 letter country code for C<IP>.
 
-=item get_asn_country( ASN )
+=head2 get_asn_country( ASN )
 
 Returns the 2 letter country code for C<ASN>.
 
-=item get_abusenet_contact ( domain )
+=head2 get_abusenet_contact ( domain )
 
 Returns the abuse.net listed contact email addresses for C<domain>.
 
-=item is_ip ( IP )
+=head2 is_ip ( IP )
 
 Returns true if C<IP> looks like an IP, false otherwise.
 
-=item get_domain ( IP )
+=head2 get_domain ( IP )
 
 Takes a hostname and attempts to return the domain name.
 
-=item get_malware ( md5 )
+=head2 get_malware ( md5 )
 
-Takes a malware md5 hash and tests it against http://www.team-cymru.org/Services/MHR. Returns a HASHREF of last_seen and detection_rate.
-
-=back
+Takes a malware md5 hash and tests it against
+http://www.team-cymru.org/Services/MHR. Returns a HASHREF of last_seen and
+detection_rate.
 
 =head1 DIAGNOSTICS
 
@@ -452,7 +443,7 @@ may be made available in the future via an import flag to use.
 
 This module makes use of the following modules:
 
-Net::DNS, Net::Whois::IP, Email::Address
+L<Net::IP>, L<Net::DNS>, L<Net::Whois::IP>, and L<Email::Address>
 
 =head1 BUGS AND LIMITATIONS
 
