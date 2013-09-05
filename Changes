@@ -1,6 +1,8 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
 {{$NEXT}}
+
+0.19  2013-09-05 18:21:39 EDT
     - Update docs, indicate which functions are IPv4 only
     - IPv6 test coverage
     - Other misc testing improvments

@@ -2,86 +2,88 @@
 
 Net::Abuse::Utils - Routines useful for processing network abuse
 
+# SYNOPSIS
 
-
-# VERSION
-
-This documentation refers to Net::Abuse::Utils version 0.15.
+    use Net::Abuse::Utils qw( :all );
+    print "IP Whois Contacts: ", join( ' ', get_ipwi_contacts($ip) ), "\n";
+    print "Abuse.net Contacts: ", get_abusenet_contact($domain), "\n";
 
 # DESCRIPTION
 
 Net::Abuse::Utils provides serveral functions useful for determining
 information about an IP address including contact/reporting addresses,
-ASN/network info, reverse dns, and DNSBL listing status.
-
-
+ASN/network info, reverse dns, and DNSBL listing status.  Functions which take
+an IP accept either IPv6 or IPv4 IPs unless indicated otherwise.
 
 # FUNCTIONS
 
 The following functions are exportable from this module.  You may import all
 of them into your namespace with the `:all` tag.
 
-- get\_asn\_info ( IP )
+## get\_asn\_info ( IP )
 
-    Returns a list containing (ASN, Network/Mask, CC code, RIR, modified date)
-    for the network announcing `IP`.
+Returns a list containing (ASN, Network/Mask, CC code, RIR, modified date)
+for the network announcing `IP`.
 
-- get\_peer\_info ( IP )
+## get\_peer\_info ( IP )
 
-    Returns an array of hash references containing (ASN, Network/Mask, CC code, RIR, modified date)
-    for the peers of the network announcing `IP`.
+IPv4 Only. Returns an array of hash references containing (ASN, Network/Mask,
+CC code, RIR, modified date) for the peers of the network announcing `IP`.
 
-- get\_as\_description ( ASN )
+## get\_as\_description ( ASN )
 
-    Returns the AS description for `ASN`. 
+Returns the AS description for `ASN`. 
 
-- get\_as\_company ( ASN )
+## get\_as\_company ( ASN )
 
-    Similiar to `get_as_description` but attempts to clean it up some before
-    returning it.
+Similiar to `get_as_description` but attempts to clean it up some before
+returning it.
 
-- get\_soa\_contact( IP )
+## get\_soa\_contact( IP )
 
-    Returns the SOA contact email address for the reverse DNS /24
-    zone containing `IP`.
+Returns the SOA contact email address for the reverse DNS /24
+zone containing `IP`.
 
-- get\_ipwi\_contacts( IP )
+## get\_ipwi\_contacts( IP )
 
-    Returns a list of all email addresses found in whois information
-    for `IP` with duplicates removed.
+Returns a list of all email addresses found in whois information
+for `IP` with duplicates removed.
 
-- get\_rdns( IP )
+## get\_rdns( IP )
 
-    Returns the reverse PTR for `IP`.
+Returns the reverse PTR for `IP`.
 
-- get\_dnsbl\_listing( IP, DNSBL zone )
+## get\_dnsbl\_listing( IP, DNSBL zone )
 
-    Returns the listing text for `IP` for the designated DNSBL.  `DNSBL zone`
-    should be the zone used for looking up addresses in the blocking list.
+IPv4 Only. Returns the listing text for `IP` for the designated DNSBL.
+`DNSBL zone` should be the zone used for looking up addresses in the
+blocking list.
 
-- get\_ip\_country( IP )
+## get\_ip\_country( IP )
 
-    Returns the 2 letter country code for `IP`.
+Returns the 2 letter country code for `IP`.
 
-- get\_asn\_country( ASN )
+## get\_asn\_country( ASN )
 
-    Returns the 2 letter country code for `ASN`.
+Returns the 2 letter country code for `ASN`.
 
-- get\_abusenet\_contact ( domain )
+## get\_abusenet\_contact ( domain )
 
-    Returns the abuse.net listed contact email addresses for `domain`.
+Returns the abuse.net listed contact email addresses for `domain`.
 
-- is\_ip ( IP )
+## is\_ip ( IP )
 
-    Returns true if `IP` looks like an IP, false otherwise.
+Returns true if `IP` looks like an IP, false otherwise.
 
-- get\_domain ( IP )
+## get\_domain ( IP )
 
-    Takes a hostname and attempts to return the domain name.
+Takes a hostname and attempts to return the domain name.
 
-- get\_malware ( md5 )
+## get\_malware ( md5 )
 
-    Takes a malware md5 hash and tests it against http://www.team-cymru.org/Services/MHR. Returns a HASHREF of last\_seen and detection\_rate.
+Takes a malware md5 hash and tests it against
+http://www.team-cymru.org/Services/MHR. Returns a HASHREF of last\_seen and
+detection\_rate.
 
 # DIAGNOSTICS
 
@@ -98,7 +100,7 @@ may be made available in the future via an import flag to use.
 
 This module makes use of the following modules:
 
-Net::DNS, Net::Whois::IP, Email::Address
+[Net::IP](http://search.cpan.org/perldoc?Net::IP), [Net::DNS](http://search.cpan.org/perldoc?Net::DNS), [Net::Whois::IP](http://search.cpan.org/perldoc?Net::Whois::IP), and [Email::Address](http://search.cpan.org/perldoc?Email::Address)
 
 # BUGS AND LIMITATIONS
 
