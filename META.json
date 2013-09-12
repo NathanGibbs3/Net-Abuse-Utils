@@ -4,7 +4,7 @@
       "Michael Greb, <mgreb@linode.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Milla version v1.0.4, Dist::Zilla version 4.300037, CPAN::Meta::Converter version 2.131560",
+   "generated_by" : "Dist::Milla version v1.0.4, Dist::Zilla version 4.300038, CPAN::Meta::Converter version 2.131560",
    "license" : [
       "perl_5"
    ],
@@ -39,7 +39,8 @@
             "Email::Address" : "0",
             "Net::DNS" : "0",
             "Net::IP" : "0",
-            "Net::Whois::IP" : "1.11"
+            "Net::Whois::IP" : "1.11",
+            "perl" : "5.006"
          }
       }
    },
