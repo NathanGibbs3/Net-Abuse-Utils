@@ -1,6 +1,8 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
 {{$NEXT}}
+    - @RESOLVERS package variable to use custom DNS resolvers instead of system
+      resolvers
     - Declare required Perl version in dist metadata files
 
 0.19  2013-09-05 18:21:39 EDT

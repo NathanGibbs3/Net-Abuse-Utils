@@ -20,7 +20,7 @@ my $ip = '67.18.92.99';
 is ( get_abusenet_contact('linode.com') , 'abuse@linode.com',   'abuse.net lookup'      );
 is ( get_soa_contact('209.123.233.241') , 'dnsadmin@nac.net',   'soa contact'           );
 is ( get_ip_country($ip)                , 'US',                 'IP Country lookup'     );
-is ( get_ip_country('2600:3c00::2:200') , 'US',                 'IP Country lookup'     );
+is ( get_ip_country('2600:3c00::2:200') , 'US',                 'IPv6 Country lookup'   );
 ok ( !get_ip_country('127.0.0.1'),                              'IP Country lookup with bad ip');
 is ( get_rdns($ip)                      , 'mail.linode.com',    'get_rdns'              );
 ok ( (get_asn_info($ip))[0]             =~ /^\d+$/,             'ASN from IP'           );
@@ -35,5 +35,11 @@ is ( get_domain('host.some.com')        , 'some.com',           'get_domain'    
 ok ( get_dnsbl_listing('127.0.0.2', 'bl.spamcop.net'),          'DNSBL listing check'   );
 
 like ( join(' ',get_ipwi_contacts('67.18.92.99')), qr/\w+@\w+/, 'whois contacts');
+
+push @Net::Abuse::Utils::RESOLVERS, '0.0.0.0';
+$ENV{RES_OPTIONS} = 'retrans:1 retry:1'; # fail fast with invalid rsolver ip
+Net::DNS::Resolver->read_env();
+is ( get_ip_country($ip)                , undef,                 '@RESOLVERS is used'   );
+@Net::Abuse::Utils::RESOLVERS = ();
 
 done_testing;

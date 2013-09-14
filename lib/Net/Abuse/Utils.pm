@@ -15,9 +15,9 @@ require Exporter;
 our @ISA = qw(Exporter);
 
 our %EXPORT_TAGS = ( 'all' => [ qw(
-	get_asn_info get_peer_info get_as_description get_soa_contact get_ipwi_contacts
-	get_rdns get_dnsbl_listing get_ip_country get_asn_country
-	get_abusenet_contact is_ip get_as_company get_domain get_malware
+    get_asn_info get_peer_info get_as_description get_soa_contact get_ipwi_contacts
+    get_rdns get_dnsbl_listing get_ip_country get_asn_country
+    get_abusenet_contact is_ip get_as_company get_domain get_malware
 ) ] );
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
@@ -26,6 +26,7 @@ $VERSION = eval $VERSION;
 
 # memoize('_return_rr');
 my @tlds;
+our @RESOLVERS;
 
 sub _reverse_ip {
     my $ip = shift;
@@ -41,7 +42,8 @@ sub _return_rr {
 
     my @result;
 
-    my $res = Net::DNS::Resolver->new;
+    my $res = Net::DNS::Resolver->new(  );
+    $res->nameservers(@RESOLVERS) if @RESOLVERS;
 
     my $query = $res->query($lookup, $rr_type);
     if ($query) {
@@ -357,6 +359,13 @@ Net::Abuse::Utils provides serveral functions useful for determining
 information about an IP address including contact/reporting addresses,
 ASN/network info, reverse dns, and DNSBL listing status.  Functions which take
 an IP accept either IPv6 or IPv4 IPs unless indicated otherwise.
+
+=head1 CONFIGURATION
+
+There is a C<@RESOLVERS> package variable you can use to specify name servers
+different than the systems nameservers for queries from this module.  If you
+intend to use Google's nameservers here, please see L<This issue on GitHub for
+a note of caution|https://github.com/mikegrb/Net-Abuse-Utils/issues/9#issuecomment-24387435>.
 
 =head1 FUNCTIONS
 
