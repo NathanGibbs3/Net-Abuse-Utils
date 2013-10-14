@@ -225,22 +225,21 @@ sub get_as_description {
     my $asn = shift;
     my @ASdata;
 
-    if (my $data = _return_rr("AS${asn}.asn.cymru.com", 'TXT')) {
-        @ASdata = split('\|', $data);
-    } 
+    if ( my $data = _return_rr( "AS${asn}.asn.cymru.com", 'TXT' ) ) {
+        @ASdata = split( '\|', $data );
+    }
     else {
         return;
     }
 
+    return unless $ASdata[4];
+    my $org = _strip_whitespace( $ASdata[4] );
+
     # for arin we get "HANDLE - AS Org"
     # we want to make it "HANDLE AS Org" to match other RIRs
-    if ($ASdata[2] eq ' arin ') {
-        my $org = _strip_whitespace($ASdata[4]);
-        $org =~ s/^(\S+) - (.*)$/$1 $2/;
-        return $org;
-    }
+    $org =~ s/^(\S+) - (.*)$/$1 $2/ if ( $ASdata[2] eq ' arin ' );
 
-    return _strip_whitespace $ASdata[4];
+    return $org;
 }
 
 sub get_as_company {
