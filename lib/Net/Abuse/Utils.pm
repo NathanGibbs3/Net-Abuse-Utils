@@ -30,7 +30,8 @@ our @RESOLVERS;
 
 sub _reverse_ip {
     my $ip = shift;
-    my @parts = split( /\./, Net::IP::ip_reverse($ip) );
+    my $ver = Net::IP::ip_get_version($ip);
+    my @parts = split( /\./, Net::IP::ip_reverse( $ip, $ver == 4 ? 32 : 128 ) );
     # strip in-addr.arp or ip6.arpa from results
     return join('.', @parts[0 .. $#parts-2]);
 }

@@ -1,6 +1,7 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
 {{$NEXT}}
+    - Pass prefix length to Net::IP::ip_reverse
 
 0.21  2013-10-13 21:25:01 EDT
     - Return early when we don't have an AS Descriotion, closes GitHub #10
