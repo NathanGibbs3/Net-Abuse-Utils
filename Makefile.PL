@@ -26,7 +26,7 @@ my %WriteMakefileArgs = (
     "Net::Whois::IP" => "1.11"
   },
   "TEST_REQUIRES" => {},
-  "VERSION" => "0.21",
+  "VERSION" => "0.22",
   "test" => {
     "TESTS" => "t/*.t"
   }

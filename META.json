@@ -56,7 +56,7 @@
          "web" : "https://github.com/mikegrb/Net-Abuse-Utils"
       }
    },
-   "version" : "0.21",
+   "version" : "0.22",
    "x_contributors" : [
       "Wes Young <github@barely3am.com>",
       "mikegrb <michael@thegrebs.com>"
