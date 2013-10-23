@@ -2,6 +2,9 @@ Revision history for Perl extension Net::Abuse::Utils.
 
 {{$NEXT}}
 
+0.23  2013-10
+    - [wesyoung] regex fix to get_peer_info where a date is not returned
+
 0.22  2013-10-17 06:14:33 EDT
     - Pass prefix length to Net::IP::ip_reverse
 
