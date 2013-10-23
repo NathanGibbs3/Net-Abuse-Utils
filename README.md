@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/wesyoung/Net-Abuse-Utils.png?branch=master)](https://travis-ci.org/wesyoung/Net-Abuse-Utils)
+
 # NAME
 
 Net::Abuse::Utils - Routines useful for processing network abuse
