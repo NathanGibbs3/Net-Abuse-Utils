@@ -21,7 +21,7 @@ our %EXPORT_TAGS = ( 'all' => [ qw(
 ) ] );
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-our $VERSION = '0.22';
+our $VERSION = '0.23';
 $VERSION = eval $VERSION;
 
 # memoize('_return_rr');
@@ -179,10 +179,11 @@ sub get_peer_info {
 
     my $lookup    = _reverse_ip($ip) . '.peer.asn.cymru.com';
     my @origin_as = _return_rr($lookup, 'TXT', 2) or return;
-    
+
     my $return = [];
+    
     foreach my $as (@origin_as){
-        my @peers = split(/\s\|\s/,$as);
+        my @peers = split(/\s\|\s?/,$as);
         my %hash = (
             prefix  => $peers[1],
             cc      => $peers[2],
