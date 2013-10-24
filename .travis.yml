@@ -6,4 +6,4 @@ perl:
   - "5.10"
   - "5.8"
 env:
-	- RELEASE_TESTING=1
+  - RELEASE_TESTING=1
