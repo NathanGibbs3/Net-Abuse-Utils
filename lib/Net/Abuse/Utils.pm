@@ -182,7 +182,6 @@ sub get_peer_info {
     my @origin_as = _return_rr($lookup, 'TXT', 2) or return;
 
     my $return = [];
-    
     foreach my $as (@origin_as){
         my @peers = split(/\s\|\s?/,$as);
         my %hash = (
@@ -203,7 +202,7 @@ sub get_peer_info {
             });
         }
     }
-    return(@$return) if wantarray;    
+    return(@$return) if wantarray;
     return($return);
 }
 
