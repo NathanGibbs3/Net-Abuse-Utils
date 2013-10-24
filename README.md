@@ -1,8 +1,12 @@
-[![Build Status](https://travis-ci.org/wesyoung/Net-Abuse-Utils.png?branch=master)](https://travis-ci.org/wesyoung/Net-Abuse-Utils)
-
 # NAME
 
 Net::Abuse::Utils - Routines useful for processing network abuse
+
+[![build status](https://secure.travis-ci.org/mikegrb/Net-Abuse-Utils.png)](https://travis-ci.org/mikegrb/Net-Abuse-Utils)
+
+# VERSION
+
+version 0.23
 
 # SYNOPSIS
 
@@ -129,23 +133,19 @@ Rik Rose, Jon Honeycutt, Brandon Hale, TJ Fontaine, A. Pagaltzis, and
 Heidi Greb all provided invaluable input during the development of this
 module.
 
-# AUTHORS
-
-Michael Greb, <mgreb@linode.com>
-Wes Young, <wes@barely3am.com>
-
 # SEE ALSO
 
 For a detailed usage example, please see examples/ip-info.pl included in
 this module's distribution.
 
-# LICENCE AND COPYRIGHT
+# AUTHORS
 
-Copyright (c) 2006-2008 Michael Greb (mgreb@linode.com). All rights reserved.
+- mikegrb <michael@thegrebs.com>
+- Wes Young <github@barely3am.com>
 
-This module is free software; you can redistribute it and/or
-modify it under the same terms as Perl itself. See [perlartistic](http://search.cpan.org/perldoc?perlartistic).
+# COPYRIGHT AND LICENSE
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+This software is copyright (c) 2013 by Mike Greb.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.

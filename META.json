@@ -1,10 +1,11 @@
 {
    "abstract" : "Routines useful for processing network abuse",
    "author" : [
-      "Michael Greb, <mgreb@linode.com>"
+      "mikegrb <michael@thegrebs.com>",
+      "Wes Young <github@barely3am.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Milla version v1.0.4, Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.131560",
+   "generated_by" : "Dist::Milla version v1.0.4, Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.132830",
    "license" : [
       "perl_5"
    ],
@@ -56,10 +57,6 @@
          "web" : "https://github.com/mikegrb/Net-Abuse-Utils"
       }
    },
-   "version" : "0.22",
-   "x_contributors" : [
-      "Wes Young <github@barely3am.com>",
-      "mikegrb <michael@thegrebs.com>"
-   ]
+   "version" : "0.23"
 }
 

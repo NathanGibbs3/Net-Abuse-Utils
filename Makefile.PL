@@ -10,7 +10,7 @@ use ExtUtils::MakeMaker 6.30;
 
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Routines useful for processing network abuse",
-  "AUTHOR" => "Michael Greb, <mgreb\@linode.com>",
+  "AUTHOR" => "mikegrb <michael\@thegrebs.com>, Wes Young <github\@barely3am.com>",
   "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
@@ -26,7 +26,7 @@ my %WriteMakefileArgs = (
     "Net::Whois::IP" => "1.11"
   },
   "TEST_REQUIRES" => {},
-  "VERSION" => "0.22",
+  "VERSION" => "0.23",
   "test" => {
     "TESTS" => "t/*.t"
   }

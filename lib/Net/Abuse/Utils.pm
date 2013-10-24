@@ -1,4 +1,5 @@
 package Net::Abuse::Utils;
+# ABSTRACT: Routines useful for processing network abuse
 
 use 5.006;
 use strict;
@@ -344,10 +345,6 @@ sub get_domain {
 
 1;
 
-=head1 NAME
-
-Net::Abuse::Utils - Routines useful for processing network abuse
-
 =head1 SYNOPSIS
 
     use Net::Abuse::Utils qw( :all );
@@ -474,26 +471,10 @@ Rik Rose, Jon Honeycutt, Brandon Hale, TJ Fontaine, A. Pagaltzis, and
 Heidi Greb all provided invaluable input during the development of this
 module.
 
-=head1 AUTHORS
-
-Michael Greb, <mgreb@linode.com>
-Wes Young, <wes@barely3am.com>
-
 =head1 SEE ALSO
 
 For a detailed usage example, please see examples/ip-info.pl included in
 this module's distribution.
-
-=head1 LICENCE AND COPYRIGHT
-
-Copyright (c) 2006-2008 Michael Greb (mgreb@linode.com). All rights reserved.
-
-This module is free software; you can redistribute it and/or
-modify it under the same terms as Perl itself. See L<perlartistic>.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 =cut
 
