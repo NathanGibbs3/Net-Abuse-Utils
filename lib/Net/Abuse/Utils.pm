@@ -126,7 +126,7 @@ sub get_ipwi_contacts {
     return _return_unique (\@addresses);
 }
 
-sub get_asn_info {
+sub get_all_asn_info {
     my $ip = shift;
     my $ver = Net::IP::ip_get_version($ip);
     return unless $ver;
@@ -134,41 +134,33 @@ sub get_asn_info {
     my $domain
         = ( $ver == 4 ) ? '.origin.asn.cymru.com' : '.origin6.asn.cymru.com';
 
-    my $lookup    = _reverse_ip($ip) . $domain;
-    my @origin_as = _return_rr($lookup, 'TXT', 2) or return;
-    
-    # un-comment for testing
-    #push(@origin_as,'20738 | 212.67.192.0/24 | GB | ripencc | 1999-05-12');
+    my $lookup = _reverse_ip($ip) . $domain;
+    my $data = [ _return_rr( $lookup, 'TXT', 2 ) ] or return;
 
+    # Separate fields and order by netmask length
     # 23028 | 216.90.108.0/24 | US | arin | 1998-09-25
     # 701 1239 3549 3561 7132 | 216.90.108.0/24 | US | arin | 1998-09-25
- 
-    my $smallest_netmask = 0;
-    my ($smallest_prefix, %data_for_asn);
+    for my $asinfo (@$data) {
+        $asinfo = { data => [ split m/ \| /, $asinfo ] };
+        $asinfo->{length} = ( split m|/|, $asinfo->{data}[1] )[1];
+    }
+    $data = [ map { $_->{data} }
+            reverse sort { $a->{length} <=> $b->{length} } @$data ];
 
-    # surely there is a better way to do this, at least the split
-    # fields are stored so they don't have to be split again ;)
-    for my $asn_info (@origin_as) {
-        my @fields  = split /\|/, $asn_info;
-        my @network = split '/', $fields[1];
+    return $data;
+}
 
-        # if multiple ASNs announce the same, block they are given space
-        # seperated in the first field, we just use the first
-        if ($fields[0] =~ /(\d+) \d+/) {
-            $fields[0] = $1;
-        }
+sub get_asn_info {
+    my $data = get_all_asn_info(shift);
+    return unless $data && @$data;
 
-        my $asn = $fields[0];
-                 
-        $data_for_asn{$fields[1]} = [@fields];
-        
-        if ($network[1] > $smallest_netmask) {
-            $smallest_netmask = $network[1];
-            $smallest_prefix  = $fields[1];
-        }
+    # just the first AS if multiple ASes are listed
+    if ($data->[0][0] =~ /(\d+) \d+/) {
+        $$data->[0][0] = $1;
     }
 
-    return map { _strip_whitespace($_) } @{ $data_for_asn{$smallest_prefix} };
+    # return just the first result, as a list
+    return @{ $data->[0] };
 }
 
 sub get_peer_info {
@@ -383,6 +375,11 @@ of them into your namespace with the C<:all> tag.
 
 Returns a list containing (ASN, Network/Mask, CC code, RIR, modified date)
 for the network announcing C<IP>.
+
+=head2 get_all_asn_info ( IP )
+
+Returns a reference to a list of listrefs containting ASN(s), Network,Mask,
+CC code, RIR, and modified date fall all networks announcing C<IP>.
 
 =head2 get_peer_info ( IP )
 

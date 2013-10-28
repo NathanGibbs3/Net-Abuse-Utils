@@ -1,6 +1,7 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
 {{$NEXT}}
+    - get_all_asn_info for getting data for all anoucing ASN(s)
 
 0.23  2013-10-24 19:08:48 EDT
     - [wesyoung] regex fix to get_peer_info where a date is not returned
