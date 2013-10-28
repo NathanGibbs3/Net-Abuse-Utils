@@ -21,6 +21,16 @@ information about an IP address including contact/reporting addresses,
 ASN/network info, reverse dns, and DNSBL listing status.  Functions which take
 an IP accept either IPv6 or IPv4 IPs unless indicated otherwise.
 
+# NAME
+
+Net::Abuse::Utils - Routines useful for processing network abuse
+
+[![build status](https://secure.travis-ci.org/mikegrb/Net-Abuse-Utils.png)](https://travis-ci.org/mikegrb/Net-Abuse-Utils)
+
+# VERSION
+
+version 0.23
+
 # CONFIGURATION
 
 There is a `@RESOLVERS` package variable you can use to specify name servers
@@ -36,6 +46,11 @@ of them into your namespace with the `:all` tag.
 
 Returns a list containing (ASN, Network/Mask, CC code, RIR, modified date)
 for the network announcing `IP`.
+
+## get\_all\_asn\_info ( IP )
+
+Returns a reference to a list of listrefs containting ASN(s), Network,Mask,
+CC code, RIR, and modified date fall all networks announcing `IP`.
 
 ## get\_peer\_info ( IP )
 
@@ -146,6 +161,18 @@ this module's distribution.
 # COPYRIGHT AND LICENSE
 
 This software is copyright (c) 2013 by Mike Greb.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+# AUTHORS
+
+- mikegrb <michael@thegrebs.com>
+- Wes Young <github@barely3am.com>
+
+# COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2013 by =over 4.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
