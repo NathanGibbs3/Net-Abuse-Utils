@@ -11,7 +11,7 @@ Revision history for Perl extension Net::Abuse::Utils.
     - Pass prefix length to Net::IP::ip_reverse
 
 0.21  2013-10-13 21:25:01 EDT
-    - Return early when we don't have an AS Descriotion, closes GitHub #10
+    - Return early when we don't have an AS Description, closes GitHub #10
 
 0.20  2013-09-13 23:51:24 EDT
     - @RESOLVERS package variable to use custom DNS resolvers instead of system
