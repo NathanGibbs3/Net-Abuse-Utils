@@ -2,8 +2,6 @@
 
 Net::Abuse::Utils - Routines useful for processing network abuse
 
-[![build status](https://secure.travis-ci.org/mikegrb/Net-Abuse-Utils.png)](https://travis-ci.org/mikegrb/Net-Abuse-Utils)
-
 # VERSION
 
 version 0.23
@@ -25,8 +23,6 @@ an IP accept either IPv6 or IPv4 IPs unless indicated otherwise.
 
 Net::Abuse::Utils - Routines useful for processing network abuse
 
-[![build status](https://secure.travis-ci.org/mikegrb/Net-Abuse-Utils.png)](https://travis-ci.org/mikegrb/Net-Abuse-Utils)
-
 # VERSION
 
 version 0.23
@@ -35,7 +31,7 @@ version 0.23
 
 There is a `@RESOLVERS` package variable you can use to specify name servers
 different than the systems nameservers for queries from this module.  If you
-intend to use Google's nameservers here, please see [This issue on GitHub for a note of caution](https://github.com/mikegrb/Net-Abuse-Utils/issues/9\#issuecomment-24387435).
+intend to use Google's nameservers here, please see [This issue on GitHub for a note of caution](https://github.com/mikegrb/Net-Abuse-Utils/issues/9#issuecomment-24387435).
 
 # FUNCTIONS
 
@@ -127,7 +123,7 @@ may be made available in the future via an import flag to use.
 
 This module makes use of the following modules:
 
-[Net::IP](http://search.cpan.org/perldoc?Net::IP), [Net::DNS](http://search.cpan.org/perldoc?Net::DNS), [Net::Whois::IP](http://search.cpan.org/perldoc?Net::Whois::IP), and [Email::Address](http://search.cpan.org/perldoc?Email::Address)
+[Net::IP](https://metacpan.org/pod/Net::IP), [Net::DNS](https://metacpan.org/pod/Net::DNS), [Net::Whois::IP](https://metacpan.org/pod/Net::Whois::IP), and [Email::Address](https://metacpan.org/pod/Email::Address)
 
 # BUGS AND LIMITATIONS
 
