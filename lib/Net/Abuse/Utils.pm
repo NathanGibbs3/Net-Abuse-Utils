@@ -338,14 +338,6 @@ sub get_domain {
 
 =pod
 
-=head1 NAME
-
-Net::Abuse::Utils - Routines useful for processing network abuse
-
-=head1 VERSION
-
-version 0.23
-
 =head1 SYNOPSIS
 
     use Net::Abuse::Utils qw( :all );
