@@ -19,19 +19,12 @@ information about an IP address including contact/reporting addresses,
 ASN/network info, reverse dns, and DNSBL listing status.  Functions which take
 an IP accept either IPv6 or IPv4 IPs unless indicated otherwise.
 
-# NAME
-
-Net::Abuse::Utils - Routines useful for processing network abuse
-
-# VERSION
-
-version 0.23
-
 # CONFIGURATION
 
 There is a `@RESOLVERS` package variable you can use to specify name servers
 different than the systems nameservers for queries from this module.  If you
-intend to use Google's nameservers here, please see [This issue on GitHub for a note of caution](https://github.com/mikegrb/Net-Abuse-Utils/issues/9#issuecomment-24387435).
+intend to use Google's nameservers here, please see [This issue on GitHub for
+a note of caution](https://github.com/mikegrb/Net-Abuse-Utils/issues/9#issuecomment-24387435).
 
 # FUNCTIONS
 
