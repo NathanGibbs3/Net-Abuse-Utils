@@ -2,9 +2,11 @@
 
 Net::Abuse::Utils - Routines useful for processing network abuse
 
+[![Build Status](https://travis-ci.org/mikegrb/Net-Abuse-Utils.png?branch=master)](https://travis-ci.org/mikegrb/Net-Abuse-Utils)
+
 # VERSION
 
-version 0.23
+version 0.24
 
 # SYNOPSIS
 

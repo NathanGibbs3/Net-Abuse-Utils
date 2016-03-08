@@ -1,6 +1,8 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
 {{$NEXT}}
+
+0.24  2016-03-08 07:43:15 EST
     - patch from rwfranks to remove some of the more volatile tests
     - get_all_asn_info for getting data for all anoucing ASN(s)
 
