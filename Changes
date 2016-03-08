@@ -1,6 +1,7 @@
 Revision history for Perl extension Net::Abuse::Utils.
 
 {{$NEXT}}
+    - patch from rwfranks to remove some of the more volatile tests
     - get_all_asn_info for getting data for all anoucing ASN(s)
 
 0.23  2013-10-24 19:08:48 EDT
@@ -61,7 +62,7 @@ Revision history for Perl extension Net::Abuse::Utils.
 
 0.10  Sun Dec 28 2008
 	- New get_domain function that converts host name to domain name
-	- Memoize support though commented out by default, enable by 
+	- Memoize support though commented out by default, enable by
 	  uncommenting the following two lines in lib/Net/Abuse/Utils.pm:
 		# use Memoize;
 		# memoize('_return_rr');
@@ -72,7 +73,7 @@ Revision history for Perl extension Net::Abuse::Utils.
 
 0.08  Fri Jun 13 2008
 	- update output of get_as_description to make ARIN IPs match other
-	  RIRs, HANDLE AS Org 
+	  RIRs, HANDLE AS Org
 	  eg: THEPLANET-AS ThePlanet.com Internet Services, Inc.
 
 0.07  Fri Mar 30 2008
